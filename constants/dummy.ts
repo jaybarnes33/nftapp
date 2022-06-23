@@ -1,6 +1,21 @@
 import assets from "./assets";
 
-const NFTData = [
+export interface IData {
+  id: string;
+  name: string;
+  creator: string;
+  price: number;
+  description: string;
+  image: any;
+  bids: {
+    id: string;
+    name: string;
+    price: number;
+    image: any;
+    date: string;
+  }[];
+}
+const NFTData: IData[] = [
   {
     id: "NFT-01",
     name: "Abstracto #312",

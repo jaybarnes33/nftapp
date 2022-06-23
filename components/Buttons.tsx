@@ -13,12 +13,14 @@ export const CircleButton = ({
   handlePress,
   top,
   right,
+  left,
 }: {
   imgUrl: ImageSourcePropType;
   handlePress?: () => void;
 
-  top: number;
-  right: number;
+  top?: number;
+  right?: number;
+  left?: number;
 }) => {
   return (
     <TouchableOpacity
@@ -33,7 +35,9 @@ export const CircleButton = ({
         ...SHADOWS.light,
         top,
         right,
+        left,
       }}
+      onPress={handlePress}
     >
       <Image
         source={imgUrl}
@@ -50,7 +54,7 @@ export const RectButton = ({
 }: {
   minWidth: number;
   fontSize: number;
-  handlePress: () => void;
+  handlePress?: () => void;
 }) => {
   return (
     <TouchableOpacity
@@ -61,6 +65,7 @@ export const RectButton = ({
         minWidth,
         padding: SIZES.small,
       }}
+      onPress={handlePress}
     >
       <Text
         style={{ color: COLORS.white, textAlign: "center", fontSize: fontSize }}

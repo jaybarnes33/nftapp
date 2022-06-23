@@ -1,9 +1,14 @@
+//@ts-nocheck
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import Details from "./screens/Details";
 import Home from "./screens/Home";
 
+export type RootStackParamList = {
+  Home: undefined;
+  Details: { IData };
+};
 const App = () => {
   const [loaded] = useFonts({
     InterBold: require("./assets/fonts/Inter-Bold.ttf"),
@@ -21,7 +26,7 @@ const App = () => {
       background: "transparent",
     },
   };
-  const Stack = createStackNavigator();
+  const Stack = createStackNavigator<RootStackParamList>();
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
